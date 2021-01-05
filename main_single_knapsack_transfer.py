@@ -161,23 +161,23 @@ def main(args=False):
 
 class Args(object):
     def __init__(self, path):
-        
-        with open('1.txt', 'r') as f:  
-            #for line in f.readlines():
-             #   line = line.strip('\n')  #去掉列表中每一个元素的换行符
-              #  print(line)
-            data = f.readline()
-            print(data)
-        self.gen = (int)data(0)
-        self.psize = (int)data[1]
+        dat = []
+        file = open('1.txt', 'r')
+        for line in file.readlines():
+            line = line.strip('\n')  #去掉列表中每一个元素的换行符
+            dat.append(line)
+        file.close()
+        data = np.array(dat)
+        self.gen = int(data[0])
+        self.psize = int(data[1])
         self.src_version = data[2]
         self.buildmodel = data[3]
         self.stop_condition = data[4]
         self.transfer=data[5]
         self.delta=data[6]
         self.version = data[7]
-        args.time_limits = data[8]
-        args.sample_size = data[9]  
+        self.time_limits = data[8]
+        self.sample_size = data[9]  
         
 if __name__ == '__main__':
     path = "./1.txt"
