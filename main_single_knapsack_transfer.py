@@ -160,4 +160,23 @@ def main(args=False):
         raise ValueError('Version which you entered is not right')
 
 if __name__ == '__main__':
-    main()
+    path = "1.txt"
+    args = Args(path)
+    main(args)
+    
+class Args(object):
+    def __init__(self, path):
+        
+         with open(path, "r") as f:  
+            data = f.read()
+        self.gen=data[0]
+        self.psize=data[1]
+        self.src_version=data[2]
+        self.buildmodel = data[3]
+        self.stop_condition = data[4]
+        self.transfer=data[5]
+        self.delta=data[6]
+        self.version = data[7]
+        args.time_limits = data[8]
+        args.sample_size = data[9]  
+
